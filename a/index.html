@@ -45,16 +45,16 @@ header.top .btn{min-height:42px;padding:0 16px;font-size:15px}
 
 /* hero: full-width photo + overlapping card */
 .hero{position:relative;background:var(--soft)}
-.hero picture img{width:100%;height:clamp(300px,42vw,600px);object-fit:cover;object-position:30% 50%}
-.hero .wrap{position:relative;margin-top:clamp(-340px,-24vw,-90px)}
-.hero .card{margin-left:auto;background:#fff;border-radius:20px;box-shadow:0 1px 0 rgba(14,27,51,.04),0 18px 48px rgba(14,27,51,.14);padding:clamp(28px,4vw,48px);max-width:680px}
+.hero picture img{width:100%;height:clamp(280px,40vw,620px);object-fit:cover;object-position:50% 45%}
+.hero .wrap{position:relative;margin-top:clamp(-96px,-6vw,-40px)}
+.hero .card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:12px clamp(28px,4vw,56px);align-items:end;background:#fff;border-radius:20px;box-shadow:0 1px 0 rgba(14,27,51,.04),0 18px 48px rgba(14,27,51,.14);padding:clamp(28px,4vw,48px)}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px;font-weight:600;color:var(--navy)}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--warm)}
 .hero h1{margin-top:18px;font-size:clamp(2rem,3.6vw,3.1rem)}
-.hero p.lede{margin-top:18px;font-size:clamp(1.05rem,1.4vw,1.18rem);color:var(--ink-2);max-width:58ch}
+.hero p.lede{margin-top:0;font-size:clamp(1.05rem,1.4vw,1.18rem);color:var(--ink-2);max-width:58ch}
 .hero .actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
 .hero .pad{height:clamp(40px,5vw,64px)}
-@media (max-width:900px){.hero .card{margin-left:0}}
+@media (max-width:900px){.hero .card{grid-template-columns:1fr}}
 @media (max-width:640px){.hero .wrap{margin-top:-48px}.hero .card{padding:24px 20px}.hero .actions .btn{flex:1 1 100%}}
 
 /* navy figures band */
@@ -252,13 +252,16 @@ footer.site nav{display:flex;gap:20px}footer.site a{text-decoration:none}
     </picture>
     <div class="wrap">
       <div class="card">
+        <div>
         <span class="pill"><i aria-hidden="true"></i>Desarrollado con el Hospital Sant Joan de Déu</span>
         <h1>Contención y estimulación sensorial para el recién nacido prematuro</h1>
+        </div><div>
         <p class="lede">Nido es un sistema patentado para la UCI neonatal que favorece una postura adecuada, mantiene el calor del bebé y el olor de sus padres, y se prepara en <strong>3 minutos</strong> en lugar de 12.</p>
         <div class="actions">
           <a class="btn primary" data-demo href="#contacto">Solicitar una demostración
             <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn ghost" href="#video"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver el vídeo (1:45)</a>
+        </div>
         </div>
       </div>
     </div>
