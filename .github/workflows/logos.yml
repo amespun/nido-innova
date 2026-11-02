@@ -16,9 +16,6 @@ jobs:
           UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36"
           curl -sSL -A "$UA" "https://www.elisava.net/wp-content/themes/elisava/images/logo.svg" -o elisava.svg || true
           curl -sSL -A "$UA" "https://www.uv.es/recursos/fatwirepub/ccurl/45/60/cap_uv.svg" -o uv.svg || true
-          curl -sSL -A "$UA" "https://hospitalregionaldemalaga.es/" -o mal.html || true
-          grep -oiE '<(img|link)[^>]*(logo|icon)[^>]*>' mal.html | head -12 > mal.txt || true
-          wc -c mal.html >> mal.txt
           rm -f *.html; ls -la
       - name: Commit
         run: |
@@ -28,3 +25,4 @@ jobs:
           git push
 
 # round 2
+# r3
