@@ -13,13 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-/* Nido · hoja de producto
-   Colours taken from the product itself: sage of the nest, navy of the logo. */
+/* Nido · hoja de producto. Navy from the logo; sage from the product, used only as a small accent. */
 :root{
   --ink:#0f1e33; --ink-2:#44505f; --ink-3:#5f6b78;
   --navy:#153c87; --navy-2:#0e2a63;
-  --sage:#7e9286; --sage-d:#3e5246; --sage-l:#e6ece8; --mist:#f3f6f4;
-  --line:#d5ddd8; --white:#fff;
+  --sage:#7e9286; --sage-d:#153c87; --sage-l:#eaf0fa; --mist:#f3f6fa;
+  --line:#d8dfea; --white:#fff;
   --ph-bg:#fdf1dc; --ph-fg:#7a4d00;
   --r:3px;
   --wrap:min(1200px,100% - 48px);
@@ -36,7 +35,7 @@ h3{font-size:1.15rem;line-height:1.25;letter-spacing:0}
 p{margin:0;text-wrap:pretty}
 ::selection{background:var(--sage-d);color:#fff}
 :focus-visible{outline:2px solid var(--navy);outline-offset:3px}
-html{scrollbar-color:var(--sage) var(--mist)}
+html{scrollbar-color:#9fb0cf var(--mist)}
 .wrap{width:var(--wrap);margin-inline:auto}
 .ic{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ph{background:var(--ph-bg);color:var(--ph-fg);padding:1px 6px;font-size:.9em;white-space:nowrap;border-radius:2px}
@@ -56,26 +55,25 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 header.top .logo img{height:40px;width:auto}
 header.top nav{display:flex;align-items:center;gap:28px;font-size:15.5px}
 header.top nav a{color:var(--ink-2);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:color .15s ease,border-color .15s ease}
-header.top nav a.on{color:var(--ink);border-bottom-color:var(--sage)}
+header.top nav a.on{color:var(--ink);border-bottom-color:var(--navy)}
 @media (hover:hover) and (pointer:fine){header.top nav a:not(.btn):hover{color:var(--ink)}}
 header.top .btn{min-height:42px;padding:0 16px;font-size:15px;border-bottom:0}
 @media (max-width:980px){header.top nav a:not(.btn){display:none}}
 
-/* hero: photograph + sage plate attached beneath it, like a catalogue plate */
-.hero img{width:100%;height:clamp(260px,38vw,580px);object-fit:cover;object-position:50% 45%}
-.plate{background:var(--sage-d);color:#fff}
-.plate .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:28px clamp(32px,5vw,80px);padding:clamp(36px,5vw,64px) 0;align-items:end}
-.plate .by{font-size:15px;color:#d3ddd6;display:flex;align-items:center;gap:10px;margin-bottom:18px}
-.plate .by img{height:22px;width:auto;background:#fff;padding:3px 6px;border-radius:2px}
-.plate h1{font-size:clamp(2.1rem,4.4vw,3.7rem);line-height:1.04;letter-spacing:-.025em;max-width:17ch}
-.plate p{color:#e3eae5;font-size:1.1rem;max-width:46ch}
-.plate p strong{color:#fff}
-.plate .actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
-.plate .btn.primary{background:#fff;color:var(--sage-d)}
-.plate .btn.line{color:#fff}
-@media (hover:hover) and (pointer:fine){.plate .btn.primary:hover{background:var(--sage-l)}.plate .btn.line:hover{background:rgba(255,255,255,.08)}}
-.plate :focus-visible{outline-color:#fff}
-@media (max-width:900px){.plate .wrap{grid-template-columns:1fr}.plate .actions .btn{flex:1 1 220px}}
+/* hero: photograph + white card overlapping its lower edge */
+.hero{background:var(--mist)}
+.hero > img{width:100%;height:clamp(280px,40vw,620px);object-fit:cover;object-position:50% 45%}
+.hero .wrap{position:relative;margin-top:clamp(-110px,-7vw,-48px)}
+.hero .card{background:#fff;border-radius:var(--r);box-shadow:0 1px 0 rgba(15,30,51,.05),0 18px 44px rgba(15,30,51,.14);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px clamp(32px,5vw,72px);align-items:end;padding:clamp(28px,4vw,52px)}
+.hero .by{font-size:15px;color:var(--ink-3);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.hero .by img{height:24px;width:auto}
+.hero h1{font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.04;letter-spacing:-.025em;max-width:17ch;color:var(--ink)}
+.hero .card p{color:var(--ink-2);font-size:1.1rem;max-width:46ch}
+.hero .card p strong{color:var(--ink)}
+.hero .actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.hero .pad{height:clamp(40px,5vw,64px)}
+@media (max-width:900px){.hero .card{grid-template-columns:1fr}.hero .actions .btn{flex:1 1 220px}}
+@media (max-width:640px){.hero .wrap{margin-top:-40px}.hero .card{padding:24px 20px}}
 
 /* key facts: one line each, equal weight */
 .facts{background:var(--navy);color:#fff}
@@ -99,7 +97,7 @@ header.top .btn{min-height:42px;padding:0 16px;font-size:15px;border-bottom:0}
 .challenge .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
 .ten{display:grid;grid-template-columns:repeat(10,1fr);gap:10px;margin-top:8px}
 .ten svg{width:100%;height:auto}
-.ten .p{fill:#c6d1cb}.ten .on{fill:var(--navy)}
+.ten .p{fill:#c9d3e6}.ten .on{fill:var(--navy)}
 .big{font-size:clamp(2.6rem,5vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1;margin-top:28px;color:var(--navy)}
 .big + p{margin-top:8px;color:var(--ink-2)}
 .notes{margin:28px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
@@ -108,30 +106,17 @@ header.top .btn{min-height:42px;padding:0 16px;font-size:15px;border-bottom:0}
 .notes small{color:var(--ink-3);font-size:13.5px;text-align:right}
 @media (max-width:860px){.challenge .wrap{grid-template-columns:1fr}}
 
-/* product drawing: labels in the margins above and below, leader lines to each part */
-.drawing{position:relative;margin:44px 0 0;aspect-ratio:1600/1220}
-.drawing .img{position:absolute;left:0;right:0;top:13.1%;height:73.8%;background:#eef0ed}
-.drawing .img img{width:100%;height:100%;object-fit:cover}
-.drawing svg.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.drawing .lines line{stroke:var(--ink);stroke-width:1.25;vector-effect:non-scaling-stroke}
-.drawing .lines circle{fill:#fff;stroke:var(--ink);stroke-width:1.75;vector-effect:non-scaling-stroke}
-.call{position:absolute;width:28%;font-size:15px;line-height:1.4;color:var(--ink-2)}
-.call.t{top:0}.call.b{bottom:0}
-.call b{display:flex;align-items:center;color:var(--ink);font-size:16px;margin-bottom:2px}
-.n{display:inline-grid;place-items:center;flex:none;width:22px;height:22px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:700;margin-right:8px;border-radius:2px}
-.pin{display:none;position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:700;place-items:center;border-radius:2px;box-shadow:0 0 0 3px rgba(255,255,255,.9)}
-.parts{display:none;margin:20px 0 0;padding:0;list-style:none;border-top:2px solid var(--ink)}
-@media (max-width:860px){
-  .drawing{aspect-ratio:auto}
-  .drawing .img{position:relative;top:auto;height:auto}
-  .drawing .img img{aspect-ratio:16/9}
-  .call,.drawing svg.lines{display:none}
-  .pin{display:grid}
-  .parts{display:block}
-  .parts li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}
-  .parts .n{margin-top:2px}
-  .parts div span{display:block;color:var(--ink-2);font-size:15.5px}
-}
+/* product: numbered photo with the key on the right */
+.anatomy{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(28px,4vw,56px);align-items:center;margin-top:40px}
+.anatomy figure{margin:0;position:relative;background:#eef0ed}
+.anatomy figure img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pin{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:15.5px;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 6px 16px rgba(15,30,51,.3)}
+.parts{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.parts li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.parts .n{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
+.parts b{display:block;font-size:1.05rem}
+.parts div span{display:block;color:var(--ink-2);font-size:15.5px;margin-top:2px}
+@media (max-width:900px){.anatomy{grid-template-columns:1fr}.pin{width:30px;height:30px;margin:-15px 0 0 -15px;font-size:14px}}
 
 /* benefits as a ruled table, photo alongside */
 .benefits .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
@@ -144,7 +129,7 @@ header.top .btn{min-height:42px;padding:0 16px;font-size:15px;border-bottom:0}
 .who dd{margin:0}
 .who ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;color:var(--ink-2)}
 .who li{padding-left:18px;position:relative}
-.who li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--sage)}
+.who li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--navy)}
 @media (max-width:860px){.benefits .wrap{grid-template-columns:1fr}.benefits figure img{aspect-ratio:16/10}.who > div{grid-template-columns:1fr;gap:8px}}
 
 /* time chart */
@@ -154,7 +139,7 @@ header.top .btn{min-height:42px;padding:0 16px;font-size:15px;border-bottom:0}
 .chart .row small{display:block;color:var(--ink-3);font-size:14px}
 .bar{height:44px;background:var(--mist);position:relative}
 .bar i{position:absolute;inset:0 auto 0 0;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-style:normal;font-weight:700;font-variant-numeric:tabular-nums;color:#fff}
-.bar.old i{width:100%;background:#66726c}
+.bar.old i{width:100%;background:#5d6b82}
 .bar.new i{width:25%;background:var(--sage-d);min-width:72px}
 .axis{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px}
 .axis ol{margin:0;padding:6px 0 0;list-style:none;display:flex;justify-content:space-between;border-top:1px solid var(--ink);font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
@@ -173,8 +158,8 @@ header.top .btn{min-height:42px;padding:0 16px;font-size:15px;border-bottom:0}
 .player video{width:100%;aspect-ratio:16/9;background:#000;display:block}
 .chapters{margin:0;padding:8px 0;list-style:none;border-left:1px solid rgba(255,255,255,.12)}
 .chapters button{width:100%;display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px;text-align:left;font:inherit;font-size:15.5px;color:#d5dce6;background:none;border:0;padding:12px 20px;min-height:48px;cursor:pointer;border-left:3px solid transparent;transition:background-color .15s ease}
-.chapters button span{font-variant-numeric:tabular-nums;color:#9fb3a8}
-.chapters button[aria-current="true"]{background:rgba(255,255,255,.07);color:#fff;border-left-color:var(--sage)}
+.chapters button span{font-variant-numeric:tabular-nums;color:#9db4dc}
+.chapters button[aria-current="true"]{background:rgba(255,255,255,.07);color:#fff;border-left-color:#8fb0e8}
 @media (hover:hover) and (pointer:fine){.chapters button:hover{background:rgba(255,255,255,.05)}}
 .video :focus-visible{outline-color:#fff}
 .tv{margin-top:24px;display:inline-flex;align-items:center;gap:14px;color:#fff;text-decoration:none;padding:14px 0;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);min-height:48px}
@@ -224,25 +209,38 @@ th{font-size:14px;font-weight:700;color:var(--ink-3)}
 @media (max-width:900px){.team .wrap{grid-template-columns:1fr}}
 
 /* contact */
-.contact{background:var(--sage-d);color:#fff}
-.contact .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);padding:clamp(56px,7vw,96px) 0}
-.contact h2{color:#fff}
-.contact p{margin-top:16px;color:#dbe4de;font-size:1.1rem;max-width:48ch}
-.ask{margin:12px 0 0;padding:0;list-style:none;border-top:2px solid #fff}
-.ask li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.25);font-weight:700}
-.contact .actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
-.contact .btn.primary{background:#fff;color:var(--sage-d)}
-.contact .btn.line{color:#fff}
-.contact a{color:#fff}
-@media (hover:hover) and (pointer:fine){.contact .btn.primary:hover{background:var(--sage-l)}}
-.contact :focus-visible{outline-color:#fff}
-@media (max-width:900px){.contact .wrap{grid-template-columns:1fr}.contact .actions .btn{flex:1 1 100%}}
+.contact{padding:clamp(56px,7vw,96px) 0}
+.cta{background:var(--navy);color:#fff;border-radius:var(--r);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px clamp(32px,5vw,72px);align-items:center}
+.cta h2{color:#fff}
+.cta p{margin-top:14px;color:#d5def0;font-size:1.1rem;max-width:48ch}
+.cta ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px;color:#fff}
+.cta li{display:flex;gap:10px;align-items:flex-start}
+.cta li .ic{width:18px;height:18px;margin-top:4px;color:#aac4f0}
+.cta .actions{display:grid;gap:12px;justify-items:stretch}
+.cta .btn.primary{background:#fff;color:var(--navy)}
+.cta .btn.line{color:#fff}
+@media (hover:hover) and (pointer:fine){.cta .btn.primary:hover{background:#eef2fa}.cta .btn.line:hover{background:rgba(255,255,255,.08)}}
+.cta :focus-visible{outline-color:#fff}
+@media (max-width:900px){.cta{grid-template-columns:1fr}}
 
-footer.site{padding:40px 0 calc(40px + env(safe-area-inset-bottom));color:var(--ink-3);font-size:14.5px}
-footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
-footer.site img{height:30px;width:auto}
-footer.site nav{display:flex;gap:22px}
-footer.site a{color:var(--ink-2)}
+footer.site{background:var(--ink);color:#c3ccd8;font-size:15px;padding:clamp(48px,6vw,72px) 0 calc(28px + env(safe-area-inset-bottom))}
+footer.site .cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:36px clamp(24px,4vw,56px)}
+footer.site .brand img{height:44px;width:auto;margin-bottom:16px}
+footer.site .brand p{max-width:34ch;line-height:1.55}
+footer.site .brand .sjd{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:14px;color:#9aa7ba}
+footer.site .brand .sjd img{height:22px;margin:0;background:#fff;padding:4px 6px;border-radius:2px}
+footer.site h3{font-size:14px;color:#fff;font-weight:700;margin-bottom:14px;letter-spacing:0}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+footer.site a{color:#c3ccd8;text-decoration:none}
+@media (hover:hover) and (pointer:fine){footer.site a:hover{color:#fff;text-decoration:underline}}
+footer.site .social{display:flex;gap:10px;margin-top:4px}
+footer.site .social a{width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:var(--r)}
+footer.site .social svg{width:18px;height:18px;fill:currentColor}
+footer.site .legal{margin-top:clamp(36px,5vw,56px);padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13.5px;color:#8f9caf}
+footer.site .legal nav{display:flex;flex-wrap:wrap;gap:18px}
+footer.site :focus-visible{outline-color:#fff}
+@media (max-width:900px){footer.site .cols{grid-template-columns:1fr 1fr}footer.site .brand{grid-column:1/-1}}
+@media (max-width:480px){footer.site .cols{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -265,8 +263,8 @@ footer.site a{color:var(--ink-2)}
 <main id="top">
   <section class="hero" aria-labelledby="t-hero">
     <img src="../assets/hero-wide.jpg" srcset="../assets/hero-wide-1280.jpg 1280w, ../assets/hero-wide.jpg 2560w" sizes="100vw" alt="Nido dentro de una incubadora, con la mano de una enfermera apoyada en el contorno" width="2560" height="1120" fetchpriority="high">
-    <div class="plate">
-      <div class="wrap">
+    <div class="wrap">
+      <div class="card">
         <div>
           <p class="by">Desarrollado con <img src="../assets/logos/sjd.svg" alt="Hospital Sant Joan de Déu Barcelona" width="174" height="28"></p>
           <h1 id="t-hero">Contención y estimulación sensorial para el recién nacido prematuro</h1>
@@ -280,6 +278,7 @@ footer.site a{color:var(--ink-2)}
         </div>
       </div>
     </div>
+    <div class="pad"></div>
   </section>
 
   <section class="facts" aria-label="Nido en resumen">
@@ -338,31 +337,21 @@ footer.site a{color:var(--ink-2)}
     <div class="wrap">
       <h2 id="t-product">Un nido listo para usar en la incubadora</h2>
       <p class="lede">Nido combina diseño ergonómico y estimulación sensorial para cuidar las necesidades físicas y emocionales del prematuro, siguiendo los principios de los cuidados centrados en el desarrollo.</p>
-      <figure class="drawing">
-        <div class="img">
+      <div class="anatomy">
+        <figure>
           <img src="../assets/product.jpg" alt="Sistema Nido en verde salvia con su base y sus rodillos" width="1280" height="720" loading="lazy">
-          <span class="pin" style="left:33.6%;top:31.9%" aria-hidden="true">1</span>
-          <span class="pin" style="left:53.1%;top:51.4%" aria-hidden="true">2</span>
-          <span class="pin" style="left:89.8%;top:65.3%" aria-hidden="true">3</span>
-          <span class="pin" style="left:46.9%;top:88.9%" aria-hidden="true">4</span>
-        </div>
-        <svg class="lines" viewBox="0 0 1600 1220" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="538" y1="447" x2="300" y2="150"/><circle cx="538" cy="447" r="7"/>
-          <line x1="850" y1="622" x2="850" y2="150"/><circle cx="850" cy="622" r="7"/>
-          <line x1="1437" y1="747" x2="1437" y2="1075"/><circle cx="1437" cy="747" r="7"/>
-          <line x1="750" y1="960" x2="420" y2="1075"/><circle cx="750" cy="960" r="7"/>
-        </svg>
-        <figcaption class="call t" style="left:0"><b><span class="n">1</span>Contorno acolchado</b>Rodea al bebé y le da contención en una postura recogida.</figcaption>
-        <div class="call t" style="left:50%"><b><span class="n">2</span>Cierre ajustable</b>Adapta el nido al tamaño y a la posición del bebé.</div>
-        <div class="call b" style="left:0"><b><span class="n">4</span>Base estable</b>Mantiene el nido en su sitio dentro de la incubadora.</div>
-        <div class="call b" style="right:0"><b><span class="n">3</span>Rodillos de posicionamiento</b>Piezas sueltas para ajustar el apoyo.</div>
-      </figure>
-      <ol class="parts">
-        <li><span class="n">1</span><div><b>Contorno acolchado</b><span>Rodea al bebé y le da contención en una postura recogida.</span></div></li>
-        <li><span class="n">2</span><div><b>Cierre ajustable</b><span>Adapta el nido al tamaño y a la posición del bebé.</span></div></li>
-        <li><span class="n">3</span><div><b>Rodillos de posicionamiento</b><span>Piezas sueltas para ajustar el apoyo.</span></div></li>
-        <li><span class="n">4</span><div><b>Base estable</b><span>Mantiene el nido en su sitio dentro de la incubadora.</span></div></li>
-      </ol>
+          <span class="pin" style="left:34%;top:30%" aria-hidden="true">1</span>
+          <span class="pin" style="left:67%;top:44%" aria-hidden="true">2</span>
+          <span class="pin" style="left:90%;top:64%" aria-hidden="true">3</span>
+          <span class="pin" style="left:47%;top:88%" aria-hidden="true">4</span>
+        </figure>
+        <ol class="parts">
+          <li><span class="n" aria-hidden="true">1</span><div><b>Contorno acolchado</b><span>Rodea al bebé y le da contención en una postura recogida.</span></div></li>
+          <li><span class="n" aria-hidden="true">2</span><div><b>Cierre ajustable</b><span>Adapta el nido al tamaño y a la posición del bebé.</span></div></li>
+          <li><span class="n" aria-hidden="true">3</span><div><b>Rodillos de posicionamiento</b><span>Piezas sueltas para ajustar el apoyo donde haga falta.</span></div></li>
+          <li><span class="n" aria-hidden="true">4</span><div><b>Base estable</b><span>Mantiene el nido en su sitio dentro de la incubadora.</span></div></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -507,17 +496,21 @@ footer.site a{color:var(--ink-2)}
 
   <section class="contact" id="contacto" aria-labelledby="t-cta">
     <div class="wrap">
-      <div>
-        <h2 id="t-cta">Prueba Nido en tu unidad</h2>
-        <p>Escríbenos y te proponemos una fecha para la demostración. El correo se abre ya preparado con los datos que necesitamos.</p>
+      <div class="cta">
+        <div>
+          <h2 id="t-cta">¿Quieres probar Nido en tu unidad?</h2>
+          <p>Escríbenos y te proponemos una fecha para la demostración. Para prepararla, cuéntanos:</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Hospital y unidad</li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Tu cargo</li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Número aproximado de puestos de incubadora</li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Un teléfono de contacto</li>
+          </ul>
+        </div>
         <div class="actions">
           <a class="btn primary" data-demo href="#contacto">Solicitar una demostración</a>
           <a class="btn line" href="mailto:nidoinnova@gmail.com">nidoinnova@gmail.com</a>
         </div>
-      </div>
-      <div>
-        <h3 style="font-size:1rem;color:#c4d1c9;font-weight:700">Para preparar la demostración, cuéntanos</h3>
-        <ul class="ask"><li>Hospital y unidad</li><li>Tu cargo</li><li>Número aproximado de puestos de incubadora</li><li>Teléfono de contacto</li></ul>
       </div>
     </div>
   </section>
@@ -525,9 +518,33 @@ footer.site a{color:var(--ink-2)}
 
 <footer class="site">
   <div class="wrap">
-    <img src="../assets/logo-color.png" alt="Nido Innova" width="560" height="362">
-    <nav aria-label="Redes"><a href="https://www.linkedin.com/company/nidoinnova/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/NidoInnovamosconvalor/" target="_blank" rel="noopener">Facebook</a></nav>
-    <span>© 2026 Nido Innova, Barcelona</span>
+    <div class="cols">
+      <div class="brand">
+        <img src="../assets/logo-white.png" alt="Nido Innova" width="560" height="362">
+        <p>Sistema patentado de contención y estimulación sensorial para el recién nacido prematuro.</p>
+        <p class="sjd">Desarrollado con <img src="../assets/logos/sjd.svg" alt="Hospital Sant Joan de Déu Barcelona" width="174" height="28"></p>
+      </div>
+      <div>
+        <h3>Producto</h3>
+        <ul><li><a href="#producto">El producto</a></li><li><a href="#eficiencia">Eficiencia</a></li><li><a href="#video">Vídeo</a></li><li><a href="#ficha">Ficha técnica</a></li><li><a href="#faq">Preguntas frecuentes</a></li></ul>
+      </div>
+      <div>
+        <h3>Para hospitales</h3>
+        <ul><li><a data-demo href="#contacto">Solicitar una demostración</a></li><li><a href="mailto:nidoinnova@gmail.com?subject=Ficha%20t%C3%A9cnica%20de%20Nido">Pedir la ficha técnica</a></li><li><a href="mailto:nidoinnova@gmail.com?subject=Presupuesto%20Nido">Pedir presupuesto</a></li><li><a href="#hospitales">Hospitales colaboradores</a></li></ul>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <ul><li><a href="mailto:nidoinnova@gmail.com">nidoinnova@gmail.com</a></li><li>Barcelona, España</li></ul>
+        <div class="social">
+          <a href="https://www.linkedin.com/company/nidoinnova/" target="_blank" rel="noopener" aria-label="Nido Innova en LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
+          <a href="https://www.facebook.com/NidoInnovamosconvalor/" target="_blank" rel="noopener" aria-label="Nido Innova en Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.2H7.6v3.6h2.7V22H14v-9.9h2.8l.4-3.6z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Nido Innova 2025 S.L. · Barcelona</span>
+      <nav aria-label="Legal"><span class="ph">[Aviso legal]</span><span class="ph">[Política de privacidad]</span><span class="ph">[Cookies]</span></nav>
+    </div>
   </div>
 </footer>
 
