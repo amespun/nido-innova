@@ -208,20 +208,58 @@ th{font-size:14px;font-weight:700;color:var(--ink-3)}
 .people span{color:var(--ink-2)}
 @media (max-width:900px){.team .wrap{grid-template-columns:1fr}}
 
-/* contact */
-.contact{padding:clamp(56px,7vw,96px) 0}
-.cta{background:var(--navy);color:#fff;border-radius:var(--r);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px clamp(32px,5vw,72px);align-items:center}
-.cta h2{color:#fff}
-.cta p{margin-top:14px;color:#d5def0;font-size:1.1rem;max-width:48ch}
-.cta ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px;color:#fff}
-.cta li{display:flex;gap:10px;align-items:flex-start}
-.cta li .ic{width:18px;height:18px;margin-top:4px;color:#aac4f0}
-.cta .actions{display:grid;gap:12px;justify-items:stretch}
-.cta .btn.primary{background:#fff;color:var(--navy)}
-.cta .btn.line{color:#fff}
-@media (hover:hover) and (pointer:fine){.cta .btn.primary:hover{background:#eef2fa}.cta .btn.line:hover{background:rgba(255,255,255,.08)}}
-.cta :focus-visible{outline-color:#fff}
-@media (max-width:900px){.cta{grid-template-columns:1fr}}
+/* contact: one request form, no email app needed */
+.contact{padding:clamp(56px,7vw,96px) 0;background:var(--mist)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,72px);align-items:start}
+.contact .intro p{margin-top:14px;color:var(--ink-2);font-size:1.1rem;max-width:42ch}
+.how{margin:28px 0 0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.how li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.how li::before{content:counter(h);counter-increment:h;font-weight:800;color:var(--navy)}
+.how{counter-reset:h}
+.direct{margin-top:24px;font-size:15px;color:var(--ink-2)}
+.copy-line{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:700;color:var(--ink)}
+.copy{font:inherit;font-size:14px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--navy);border-radius:var(--r);padding:0 12px;min-height:34px;cursor:pointer}
+.copy[data-done]{background:var(--navy);color:#fff}
+footer.site .copy{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);min-height:30px;font-size:13px}
+footer.site .copy-line{color:#c3ccd8;font-weight:400}
+
+form.req{background:#fff;border-radius:var(--r);box-shadow:0 1px 0 rgba(15,30,51,.05),0 18px 44px rgba(15,30,51,.10);padding:clamp(24px,3.5vw,40px)}
+.req fieldset{border:0;margin:0 0 22px;padding:0}
+.req legend{font-weight:800;font-size:1.05rem;margin-bottom:10px;padding:0}
+.types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.types label{position:relative;display:flex;align-items:center;gap:10px;min-height:52px;padding:10px 14px;border:1.5px solid var(--line);border-radius:var(--r);cursor:pointer;font-weight:700;transition:border-color .15s ease,background-color .15s ease}
+.types input{position:absolute;opacity:0;pointer-events:none}
+.types .dot{width:18px;height:18px;border-radius:50%;border:2px solid #9aa8bf;flex:none;display:grid;place-items:center}
+.types input:checked + .dot{border-color:var(--navy)}
+.types input:checked + .dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--navy)}
+.types label:has(input:checked){border-color:var(--navy);background:var(--sage-l)}
+.types label:has(input:focus-visible){outline:2px solid var(--navy);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.types label:hover{border-color:#9aa8bf}}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.f{display:grid;gap:6px;align-content:start}
+.f.full{grid-column:1/-1}
+.f label{font-weight:700;font-size:15px}
+.f label span{font-weight:400;color:var(--ink-3)}
+.f input,.f textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid #b9c3d3;border-radius:var(--r);padding:12px 14px;min-height:48px;width:100%}
+.f textarea{min-height:110px;resize:vertical}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(21,60,135,.15)}
+.f input[aria-invalid="true"]{border-color:#b42318}
+.f .err{color:#b42318;font-size:14px;min-height:0}
+.f .err:empty{display:none}
+.req .send{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.req .send .btn{min-width:240px}
+.req .send small{color:var(--ink-3);font-size:13.5px;max-width:40ch}
+.req .btn[disabled]{opacity:.6;cursor:progress}
+.hp{position:absolute;left:-9999px}
+.status{margin-top:16px;padding:14px 16px;border-radius:var(--r);font-size:15.5px}
+.status:empty{display:none}
+.status.ok{background:#e7f4ec;color:#14532d}
+.status.bad{background:#fdecea;color:#7a1d14}
+.done{text-align:left}
+.done h3{font-size:1.4rem;margin-bottom:8px}
+.done p{color:var(--ink-2)}
+@media (max-width:900px){.contact .wrap{grid-template-columns:1fr}}
+@media (max-width:560px){.types,.fields{grid-template-columns:1fr}.req .send .btn{width:100%}}
 
 footer.site{background:var(--ink);color:#c3ccd8;font-size:15px;padding:clamp(48px,6vw,72px) 0 calc(28px + env(safe-area-inset-bottom))}
 footer.site .cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:36px clamp(24px,4vw,56px)}
@@ -255,7 +293,7 @@ footer.site :focus-visible{outline-color:#fff}
       <a href="#hospitales">Hospitales</a>
       <a href="#ficha">Ficha técnica</a>
       <a href="#faq">Preguntas</a>
-      <a class="btn primary" data-demo href="#contacto">Solicitar demostración</a>
+      <a class="btn primary" data-req="demo" href="#contacto">Solicitar demostración</a>
     </nav>
   </div>
 </header>
@@ -272,7 +310,7 @@ footer.site :focus-visible{outline-color:#fff}
         <div>
           <p>Nido es un sistema patentado para la UCI neonatal. Favorece una postura adecuada, mantiene el calor del bebé y el olor de sus padres, y se prepara en <strong>3 minutos</strong> en lugar de 12.</p>
           <div class="actions">
-            <a class="btn primary" data-demo href="#contacto">Solicitar una demostración</a>
+            <a class="btn primary" data-req="demo" href="#contacto">Solicitar una demostración</a>
             <a class="btn line" href="#video"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver el vídeo (1:45)</a>
           </div>
         </div>
@@ -436,7 +474,7 @@ footer.site :focus-visible{outline-color:#fff}
   <section class="block" id="ficha" style="background:var(--mist)" aria-labelledby="t-spec">
     <div class="wrap">
       <h2 id="t-spec">Ficha técnica</h2>
-      <p class="lede">Lo que necesitan compras y la supervisión de enfermería para valorar Nido.</p>
+      <p class="lede">Lo que necesitan compras y la supervisión de enfermería para valorar Nido. La ficha completa en PDF te la enviamos al pedirla.</p>
       <div class="spec-wrap">
         <dl class="spec">
           <div><dt>Uso</dt><dd>UCI neonatal y pediatría</dd></div>
@@ -458,8 +496,8 @@ footer.site :focus-visible{outline-color:#fff}
             </tbody>
           </table>
           <div class="downloads">
-            <a class="btn line" href="mailto:nidoinnova@gmail.com?subject=Ficha%20t%C3%A9cnica%20de%20Nido"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Pedir la ficha técnica</a>
-            <a class="btn line" href="mailto:nidoinnova@gmail.com?subject=Presupuesto%20Nido">Pedir presupuesto</a>
+            <a class="btn line" data-req="ficha" href="#contacto">Pedir la ficha técnica</a>
+            <a class="btn line" data-req="presupuesto" href="#contacto">Pedir presupuesto</a>
           </div>
         </div>
       </div>
@@ -496,22 +534,43 @@ footer.site :focus-visible{outline-color:#fff}
 
   <section class="contact" id="contacto" aria-labelledby="t-cta">
     <div class="wrap">
-      <div class="cta">
-        <div>
-          <h2 id="t-cta">¿Quieres probar Nido en tu unidad?</h2>
-          <p>Escríbenos y te proponemos una fecha para la demostración. Para prepararla, cuéntanos:</p>
-          <ul>
-            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Hospital y unidad</li>
-            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Tu cargo</li>
-            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Número aproximado de puestos de incubadora</li>
-            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Un teléfono de contacto</li>
-          </ul>
-        </div>
-        <div class="actions">
-          <a class="btn primary" data-demo href="#contacto">Solicitar una demostración</a>
-          <a class="btn line" href="mailto:nidoinnova@gmail.com">nidoinnova@gmail.com</a>
-        </div>
+      <div class="intro">
+        <h2 id="t-cta">Pide una demostración, la ficha técnica o un presupuesto</h2>
+        <p>Rellena el formulario y te contestamos por email. No hace falta abrir tu programa de correo.</p>
+        <ol class="how">
+          <li>Elige qué necesitas y déjanos tus datos.</li>
+          <li>Te escribimos para confirmar los detalles.</li>
+          <li>Si pides una demostración, la hacemos en tu unidad.</li>
+        </ol>
+        <p class="direct">¿Prefieres escribirnos directamente?<br><span class="copy-line">nidoinnova@gmail.com <button type="button" class="copy" data-copy="nidoinnova@gmail.com">Copiar</button></span></p>
       </div>
+
+      <form class="req" id="req" novalidate>
+        <fieldset>
+          <legend>¿Qué necesitas?</legend>
+          <div class="types">
+            <label><input type="radio" name="tipo" value="Demostración" data-btn="Solicitar demostración" checked><span class="dot"></span>Una demostración</label>
+            <label><input type="radio" name="tipo" value="Ficha técnica" data-btn="Pedir la ficha técnica"><span class="dot"></span>La ficha técnica</label>
+            <label><input type="radio" name="tipo" value="Presupuesto" data-btn="Pedir presupuesto"><span class="dot"></span>Un presupuesto</label>
+            <label><input type="radio" name="tipo" value="Otra consulta" data-btn="Enviar consulta"><span class="dot"></span>Otra consulta</label>
+          </div>
+        </fieldset>
+        <div class="fields">
+          <div class="f"><label for="f-nombre">Nombre y apellidos</label><input id="f-nombre" name="nombre" autocomplete="name" required><p class="err" id="e-nombre"></p></div>
+          <div class="f"><label for="f-email">Email de trabajo</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required><p class="err" id="e-email"></p></div>
+          <div class="f"><label for="f-hospital">Hospital o centro</label><input id="f-hospital" name="hospital" autocomplete="organization" required><p class="err" id="e-hospital"></p></div>
+          <div class="f"><label for="f-cargo">Cargo</label><input id="f-cargo" name="cargo" autocomplete="organization-title" placeholder="Ej.: supervisora de enfermería" required><p class="err" id="e-cargo"></p></div>
+          <div class="f"><label for="f-unidad">Unidad <span>(opcional)</span></label><input id="f-unidad" name="unidad" placeholder="Ej.: UCI neonatal, 20 puestos"></div>
+          <div class="f"><label for="f-tel">Teléfono <span>(opcional)</span></label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel"></div>
+          <div class="f full"><label for="f-msg">Mensaje <span>(opcional)</span></label><textarea id="f-msg" name="mensaje" placeholder="Fechas que te van bien, número de unidades, dudas…"></textarea></div>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="send">
+          <button class="btn primary" type="submit" id="send">Solicitar demostración</button>
+          <small>Usamos estos datos solo para responder a tu solicitud.</small>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
@@ -530,11 +589,11 @@ footer.site :focus-visible{outline-color:#fff}
       </div>
       <div>
         <h3>Para hospitales</h3>
-        <ul><li><a data-demo href="#contacto">Solicitar una demostración</a></li><li><a href="mailto:nidoinnova@gmail.com?subject=Ficha%20t%C3%A9cnica%20de%20Nido">Pedir la ficha técnica</a></li><li><a href="mailto:nidoinnova@gmail.com?subject=Presupuesto%20Nido">Pedir presupuesto</a></li><li><a href="#hospitales">Hospitales colaboradores</a></li></ul>
+        <ul><li><a data-req="demo" href="#contacto">Solicitar una demostración</a></li><li><a data-req="ficha" href="#contacto">Pedir la ficha técnica</a></li><li><a data-req="presupuesto" href="#contacto">Pedir presupuesto</a></li><li><a href="#hospitales">Hospitales colaboradores</a></li></ul>
       </div>
       <div>
         <h3>Contacto</h3>
-        <ul><li><a href="mailto:nidoinnova@gmail.com">nidoinnova@gmail.com</a></li><li>Barcelona, España</li></ul>
+        <ul><li><a href="#contacto">Escríbenos</a></li><li><span class="copy-line">nidoinnova@gmail.com <button type="button" class="copy" data-copy="nidoinnova@gmail.com">Copiar</button></span></li><li>Barcelona, España</li></ul>
         <div class="social">
           <a href="https://www.linkedin.com/company/nidoinnova/" target="_blank" rel="noopener" aria-label="Nido Innova en LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
           <a href="https://www.facebook.com/NidoInnovamosconvalor/" target="_blank" rel="noopener" aria-label="Nido Innova en Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.2H7.6v3.6h2.7V22H14v-9.9h2.8l.4-3.6z"/></svg></a>
@@ -549,10 +608,63 @@ footer.site :focus-visible{outline-color:#fff}
 </footer>
 
 <script>
-// Demo request: opens an email with fields to fill
-const demo = 'mailto:nidoinnova@gmail.com?subject=' + encodeURIComponent('Solicitud de demostración de Nido') +
-  '&body=' + encodeURIComponent('Hola,\n\nMe gustaría ver una demostración de Nido.\n\nHospital y unidad: \nCargo: \nPuestos de incubadora (aprox.): \nTeléfono: \n\nGracias.');
-document.querySelectorAll('[data-demo]').forEach(a => a.setAttribute('href', demo));
+// Request form: every "pedir / solicitar" button lands here with its option selected
+const form = document.getElementById('req'), send = document.getElementById('send'), status = document.getElementById('status');
+const types = [...form.querySelectorAll('input[name="tipo"]')];
+const map = {demo: 'Demostración', ficha: 'Ficha técnica', presupuesto: 'Presupuesto'};
+const syncBtn = () => { send.textContent = types.find(t => t.checked).dataset.btn; };
+types.forEach(t => t.addEventListener('change', syncBtn));
+document.querySelectorAll('[data-req]').forEach(a => a.addEventListener('click', () => {
+  const t = types.find(x => x.value === map[a.dataset.req]); if (t) { t.checked = true; syncBtn(); }
+  setTimeout(() => document.getElementById('f-nombre').focus({preventScroll: true}), 450);
+}));
+
+// Copy the email address instead of opening an email app
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(b.dataset.copy); } catch (e) {
+    const r = document.createRange(); r.selectNodeContents(b.parentElement.firstChild); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+  b.textContent = 'Copiado'; b.dataset.done = ''; setTimeout(() => { b.textContent = 'Copiar'; delete b.dataset.done; }, 2000);
+}));
+
+// Validation in plain words
+const rules = {
+  nombre: v => v.trim() ? '' : 'Escribe tu nombre.',
+  email: v => !v.trim() ? 'Escribe tu email para que podamos responderte.' : (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Revisa el email: falta algo, por ejemplo la @ o el dominio.'),
+  hospital: v => v.trim() ? '' : 'Indica el hospital o centro.',
+  cargo: v => v.trim() ? '' : 'Indica tu cargo.'
+};
+const check = name => {
+  const el = form.elements[name], msg = rules[name](el.value);
+  el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  el.setAttribute('aria-describedby', 'e-' + name);
+  document.getElementById('e-' + name).textContent = msg; return !msg;
+};
+Object.keys(rules).forEach(n => form.elements[n].addEventListener('blur', () => { if (form.elements[n].value) check(n); }));
+
+// Sends through FormSubmit to Nido's inbox (Eva activates it once with the first email she receives)
+const ENDPOINT = 'https://formsubmit.co/ajax/nidoinnova@gmail.com';
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const ok = Object.keys(rules).map(check).every(Boolean);
+  if (!ok) { form.querySelector('[aria-invalid="true"]').focus(); return; }
+  if (form.elements._honey.value) return;
+  const d = Object.fromEntries(new FormData(form));
+  const label = send.textContent;
+  send.disabled = true; send.textContent = 'Enviando…'; status.className = 'status'; status.textContent = '';
+  try {
+    const r = await fetch(ENDPOINT, {method: 'POST', headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+      body: JSON.stringify({...d, _subject: `Nido · ${d.tipo} · ${d.hospital}`, _replyto: d.email, _template: 'table', _captcha: 'false'})});
+    if (!r.ok) throw new Error(r.status);
+    const esc = t => String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    form.innerHTML = `<div class="done" tabindex="-1"><h3>Solicitud enviada</h3><p>Gracias, ${esc(d.nombre.trim().split(' ')[0])}. Hemos recibido tu petición de <strong>${esc(d.tipo.toLowerCase())}</strong> y te responderemos a <strong>${esc(d.email)}</strong>.</p></div>`;
+    form.querySelector('.done').focus();
+  } catch (err) {
+    send.disabled = false; send.textContent = label;
+    status.className = 'status bad';
+    status.innerHTML = 'No se ha podido enviar. Comprueba tu conexión e inténtalo de nuevo, o escríbenos a <strong>nidoinnova@gmail.com</strong>.';
+  }
+});
 
 // Video chapters
 const v = document.getElementById('vid');
