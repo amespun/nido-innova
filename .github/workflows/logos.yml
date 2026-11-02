@@ -14,26 +14,11 @@ jobs:
         run: |
           mkdir -p _logos && cd _logos
           UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36"
-          curl -sSL -A "$UA" "https://www.hgc.es/es/banners/11943-Logo%20Universitari%20Catalunya.png" -o hugc.png || true
-          curl -sSL -A "$UA" "https://www.scias.com/themes/custom/global_theme/logo-scias.svg" -o scias.svg || true
-          curl -sSL -A "$UA" "https://www.sjdhospitalbarcelona.org/es" -o sjd.html || true
-          curl -sSL -A "$UA" "https://www.clinicbarcelona.org/" -o clinic.html || true
-          curl -sSL -A "$UA" "https://www.elisava.net/" -o elisava.html || true
-          curl -sSL -A "$UA" "https://www.uv.es/" -o uv.html || true
-          python3 - <<'PY'
-          import re
-          def grab(src, vb, out):
-              try: h=open(src,encoding='utf-8',errors='ignore').read()
-              except Exception as e: print(src,e); return
-              for m in re.finditer(r'<svg\b.*?</svg>', h, re.S):
-                  s=m.group(0)
-                  if vb in s[:400]:
-                      open(out,'w').write(s); print('ok',out,len(s)); return
-              print('miss',out)
-          grab('sjd.html','0 0 173.691 28.187','sjd.svg')
-          grab('clinic.html','0 0 139 52','clinic.svg')
-          PY
-          grep -oiE '<img[^>]*logo[^>]*>' elisava.html uv.html | head -10 > imgs.txt || true
+          curl -sSL -A "$UA" "https://www.elisava.net/wp-content/themes/elisava/images/logo.svg" -o elisava.svg || true
+          curl -sSL -A "$UA" "https://www.uv.es/recursos/fatwirepub/ccurl/45/60/cap_uv.svg" -o uv.svg || true
+          curl -sSL -A "$UA" "https://hospitalregionaldemalaga.es/" -o mal.html || true
+          grep -oiE '<(img|link)[^>]*(logo|icon)[^>]*>' mal.html | head -12 > mal.txt || true
+          wc -c mal.html >> mal.txt
           rm -f *.html; ls -la
       - name: Commit
         run: |
@@ -41,3 +26,5 @@ jobs:
           git config user.email "actions@github.com"
           git add _logos && git commit -m "Fetched logos" || echo nothing
           git push
+
+# round 2
