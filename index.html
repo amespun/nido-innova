@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nido Innova · Propuestas de web</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Figtree,system-ui,sans-serif;color:#0e1b33;background:#f3f6fa;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.wrap{width:min(1120px,100% - 40px);margin:0 auto;padding:clamp(32px,6vw,72px) 0 64px}
+header img{height:44px;width:auto}
+h1{margin:28px 0 0;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.05}
+p.lede{margin:14px 0 0;font-size:1.1rem;color:#4b5568;max-width:60ch}
+.grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px}
+a.card{display:grid;text-decoration:none;color:inherit;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(14,27,51,.06),0 10px 30px -18px rgba(14,27,51,.3);transition:transform .2s cubic-bezier(.23,1,.32,1),box-shadow .2s ease;touch-action:manipulation}
+a.card:active{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){a.card:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(14,27,51,.06),0 18px 40px -18px rgba(14,27,51,.4)}}
+.sw{height:150px;display:flex;align-items:flex-end;padding:20px;gap:8px}
+.sw i{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.7)}
+.body{padding:22px 24px 26px}
+.body b{display:block;font-size:1.35rem;font-weight:800;letter-spacing:-.015em}
+.body span{display:block;margin-top:8px;color:#4b5568}
+.body em{display:inline-block;margin-top:16px;font-style:normal;font-weight:600;color:#153c87}
+a:focus-visible{outline:2px solid #153c87;outline-offset:4px}
+footer{margin-top:40px;color:#4b5568;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img src="assets/logo-color.png" alt="Nido Innova" width="560" height="362"></header>
+  <h1>Tres propuestas para la nueva web de Nido</h1>
+  <p class="lede">El mismo contenido y el mismo objetivo, vender Nido a hospitales, contado de tres formas distintas. Ábrelas en el ordenador y en el móvil, y quédate con la que mejor represente a Nido Innova.</p>
+  <div class="grid">
+    <a class="card" href="a/">
+      <div class="sw" style="background:#ffffff;box-shadow:inset 0 -1px 0 #e3e8ef"><i style="background:#153c87"></i><i style="background:#f3f6fa"></i><i style="background:#e8a33d"></i></div>
+      <div class="body"><b>A · Clínica</b><span>Limpia y técnica, como una empresa de producto sanitario. Pone primero la credibilidad: hospitales, datos y ficha técnica.</span><em>Ver propuesta A →</em></div>
+    </a>
+    <a class="card" href="b/">
+      <div class="sw" style="background:#f6f3ed"><i style="background:#3d4c40"></i><i style="background:#5a6c5c"></i><i style="background:#f2b85b"></i></div>
+      <div class="body"><b>B · Cálida</b><span>Cercana y emocional, con el verde del producto. Explica Nido desde el bebé, la familia y el equipo de enfermería.</span><em>Ver propuesta B →</em></div>
+    </a>
+    <a class="card" href="c/">
+      <div class="sw" style="background:#0a1430"><i style="background:#153c87"></i><i style="background:#4f7cf0"></i><i style="background:#f2b85b"></i></div>
+      <div class="body"><b>C · Impacto</b><span>Editorial y potente, con el azul de la marca. Empieza por el problema y los grandes números, ideal para presentar a dirección.</span><em>Ver propuesta C →</em></div>
+    </a>
+  </div>
+  <footer>Propuestas de diseño preparadas por Aïda Martínez Espún · amespun.com</footer>
+</div>
+</body>
+</html>

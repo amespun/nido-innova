@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nido · Sistema de contención y estimulación sensorial para prematuros</title>
+<meta name="description" content="Nido es un sistema patentado de contención y estimulación sensorial para recién nacidos prematuros, desarrollado con el Hospital Sant Joan de Déu.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e1b33;--ink-2:#4b5568;--line:#e3e8ef;--soft:#f3f6fa;--navy:#153c87;--navy-2:#0f2c66;--warm:#e8a33d;--ease:cubic-bezier(.23,1,.32,1);--wrap:min(1180px,100% - 48px)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-behavior:smooth}
+body{margin:0;font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.025em;text-wrap:balance}p{margin:0;text-wrap:pretty}
+.wrap{width:var(--wrap);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:12px;font-weight:600;font-size:16px;text-decoration:none;touch-action:manipulation;transition:transform .15s var(--ease),background-color .2s ease}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--navy);color:#fff}.btn.ghost{background:var(--soft);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn.primary:hover{background:var(--navy-2)}.btn.ghost:hover{background:#e7edf5}}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:8px}
+.ic{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+header img{height:38px;width:auto}
+header nav{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+header nav a{text-decoration:none;color:var(--ink-2)}
+@media (hover:hover) and (pointer:fine){header nav a:hover{color:var(--ink)}}
+header .btn{min-height:42px;padding:0 16px;font-size:15px}
+@media (max-width:860px){header nav a:not(.btn){display:none}}
+
+.hero{padding:clamp(48px,7vw,96px) 0 clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px;font-weight:600;color:var(--navy)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--warm)}
+.hero h1{margin-top:20px;font-size:clamp(2.3rem,4.6vw,3.9rem);font-weight:800}
+.hero p.lede{margin-top:20px;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--ink-2);max-width:56ch}
+.hero .actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.hero figure{margin:0;position:relative}
+.hero figure img{border-radius:24px;aspect-ratio:4/3.4;object-fit:cover;width:100%;background:var(--soft)}
+.hero .badge{position:absolute;left:-20px;bottom:24px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 1px 2px rgba(14,27,51,.06),0 12px 32px -12px rgba(14,27,51,.25);display:flex;gap:12px;align-items:center}
+.hero .badge b{font-size:1.6rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hero .badge span{font-size:14px;color:var(--ink-2);line-height:1.3}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero .badge{left:12px}}
+
+.trust{border-block:1px solid var(--line);background:#fff}
+.trust .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;padding:22px 0}
+.trust p{font-size:14px;font-weight:600;color:var(--ink-2)}
+.trust ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px;font-weight:700;font-size:15px;color:var(--ink)}
+
+section.block{padding:clamp(64px,9vw,120px) 0}
+.kicker-less h2,.block h2{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800}
+.block .intro{max-width:720px}
+.block .intro p{margin-top:16px;font-size:1.1rem;color:var(--ink-2)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:16px;margin-top:40px}
+.stat{padding:28px;border-radius:20px;background:var(--soft)}
+.stat b{display:block;font-size:clamp(2.4rem,4vw,3.2rem);font-weight:800;letter-spacing:-.03em;color:var(--navy);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;color:var(--ink-2)}
+.stat small{display:block;margin-top:10px;font-size:13px;color:var(--ink-2)}
+
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px;margin-top:40px}
+.feature{padding:24px;border-radius:20px;border:1px solid var(--line);display:grid;gap:10px;align-content:start}
+.feature .ico{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--navy)}
+.feature h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.feature p{color:var(--ink-2);font-size:15.5px}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.split img{border-radius:24px;width:100%;aspect-ratio:4/3;object-fit:cover}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.timebar{margin-top:28px;display:grid;gap:14px}
+.timebar .row{display:grid;grid-template-columns:120px minmax(0,1fr) 72px;gap:12px;align-items:center;font-size:15px}
+.timebar .bar{height:14px;border-radius:999px;background:var(--soft);overflow:hidden}
+.timebar .bar i{display:block;height:100%;border-radius:inherit;background:#c3cddc}
+.timebar .row.new .bar i{background:var(--navy)}
+.timebar b{font-variant-numeric:tabular-nums;text-align:right}
+.ticks{margin-top:24px;display:grid;gap:10px;padding:0;list-style:none}
+.ticks li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2)}
+.ticks .ic{color:var(--navy);margin-top:2px}
+
+.video{background:var(--ink);color:#fff}
+.video h2{color:#fff}.video .intro p{color:#c6cfdd}
+.video video{margin-top:36px;width:100%;border-radius:20px;aspect-ratio:16/9;background:#000}
+
+.collab{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:36px;padding:0;list-style:none}
+.collab li{padding:18px 20px;border-radius:14px;background:var(--soft);font-weight:600}
+.collab li small{display:block;font-weight:500;color:var(--ink-2);font-size:14px;margin-top:2px}
+
+.spec{margin-top:36px;border-top:1px solid var(--line)}
+.spec div{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.spec dt{font-weight:600}.spec dd{margin:0;color:var(--ink-2)}
+.ph{background:#fff4dc;color:#7a4d00;border-radius:6px;padding:1px 6px;font-size:.92em}
+
+.team{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,64px);align-items:center}
+.team img{border-radius:24px;width:100%;aspect-ratio:16/10;object-fit:cover}
+.people{margin-top:24px;display:grid;gap:12px;padding:0;list-style:none}
+.people li{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.people b{font-weight:700}.people span{color:var(--ink-2)}
+@media (max-width:900px){.team{grid-template-columns:1fr}}
+
+.cta{background:var(--navy);color:#fff;border-radius:28px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:32px;align-items:center}
+.cta h2{color:#fff}.cta p{margin-top:14px;color:#d5def0;font-size:1.1rem}
+.cta .btn.primary{background:#fff;color:var(--navy)}
+@media (hover:hover) and (pointer:fine){.cta .btn.primary:hover{background:#eef2fa}}
+.cta .actions{display:grid;gap:12px;justify-items:start}
+.cta .actions a.mail{color:#fff;font-weight:600}
+@media (max-width:900px){.cta{grid-template-columns:1fr}}
+
+footer{padding:48px 0 calc(48px + env(safe-area-inset-bottom));color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer img{height:30px;width:auto}
+footer nav{display:flex;gap:20px}
+footer nav a{text-decoration:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="#top" aria-label="Nido Innova, inicio"><img src="../assets/logo-color.png" alt="Nido Innova" width="560" height="362"></a>
+    <nav aria-label="Principal">
+      <a href="#producto">Producto</a>
+      <a href="#eficiencia">Eficiencia</a>
+      <a href="#video">Vídeo</a>
+      <a href="#equipo">Equipo</a>
+      <a class="btn primary" href="mailto:nidoinnova@gmail.com?subject=Solicitud%20de%20demostraci%C3%B3n%20Nido">Solicitar demostración</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill"><i aria-hidden="true"></i>Desarrollado con el Hospital Sant Joan de Déu</span>
+        <h1>Contención y estimulación sensorial para el recién nacido prematuro</h1>
+        <p class="lede">Nido es un sistema patentado para unidades neonatales. Ayuda a posicionar y contener al bebé, mantiene su calor y el olor de sus padres, y reduce el tiempo de preparación de <strong>12 a 3 minutos</strong>.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:nidoinnova@gmail.com?subject=Solicitud%20de%20demostraci%C3%B3n%20Nido">Solicitar una demostración
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="#video"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver el vídeo</a>
+        </div>
+      </div>
+      <figure>
+        <img src="../assets/product.jpg" alt="Sistema Nido en color verde salvia sobre su base" width="1280" height="720">
+        <div class="badge"><b>12 → 3</b><span>minutos de<br>preparación</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <p>Con la colaboración de</p>
+      <ul>
+        <li>Hospital Sant Joan de Déu</li><li>Hospital Clínic de Barcelona</li><li>Hospital Clínic Universitari de València</li><li>Elisava</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="block" aria-labelledby="t-context">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="t-context">Cada año nacen miles de bebés antes de tiempo</h2>
+        <p>Los recién nacidos prematuros pasan sus primeras semanas en la UCI neonatal. Necesitan contención, una postura adecuada y estímulos controlados, y sus familias necesitan estar cerca.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>1 de 10</b><span>bebés nace prematuro en el mundo</span><small>Fuente: OMS, 2023</small></div>
+        <div class="stat"><b>30.000</b><span>bebés prematuros cada año en España</span><small><span class="ph">Fuente por confirmar</span></small></div>
+        <div class="stat"><b>13,4 M</b><span>nacimientos prematuros en el mundo en 2020</span><small>Fuente: OMS, 2023</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="producto" aria-labelledby="t-product" style="padding-top:0">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="t-product">Un sistema pensado para el bebé, la familia y el equipo de enfermería</h2>
+        <p>Nido combina diseño ergonómico y estimulación sensorial para cuidar las necesidades físicas y emocionales del prematuro.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><span class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14c0 3.3 3.6 6 8 6s8-2.7 8-6"/><path d="M4 14c2-1.5 4-2 8-2s6 .5 8 2"/><circle cx="12" cy="7" r="3"/></svg></span><h3>Contención y posicionamiento</h3><p>Recoge al bebé en una postura flexionada y estable, como en el útero.</p></div>
+        <div class="feature"><span class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span><h3>Estimulación sensorial</h3><p>Ofrece estímulos suaves y controlados que acompañan su desarrollo.</p></div>
+        <div class="feature"><span class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>Calor y vínculo</h3><p>Mantiene el calor del bebé y el olor de sus padres, y refuerza el vínculo familiar.</p></div>
+        <div class="feature"><span class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Ergonómico y desinfectable</h3><p>Diseñado para el uso diario en la incubadora y fácil de limpiar entre pacientes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="eficiencia" aria-labelledby="t-eff" style="background:var(--soft)">
+    <div class="wrap split">
+      <img src="../assets/product-incubator.jpg" alt="Una mano de enfermería coloca el sistema Nido junto a los tubos de la incubadora" width="1280" height="720" loading="lazy">
+      <div>
+        <h2 id="t-eff">Menos tiempo de preparación, más tiempo con el paciente</h2>
+        <p style="margin-top:16px;font-size:1.1rem;color:var(--ink-2)">Nido llega listo para usar y simplifica la preparación del nido en la incubadora.</p>
+        <div class="timebar" role="img" aria-label="Tiempo de preparación: método habitual 12 minutos, con Nido 3 minutos">
+          <div class="row"><span>Método habitual</span><span class="bar"><i style="width:100%"></i></span><b>12 min</b></div>
+          <div class="row new"><span>Con Nido</span><span class="bar"><i style="width:25%"></i></span><b>3 min</b></div>
+        </div>
+        <ul class="ticks">
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Preparación del producto más rápida</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Interacción más sencilla con el paciente</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Mejores prácticas asistenciales en la unidad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block video" id="video" aria-labelledby="t-video">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="t-video">Nido en la UCI neonatal</h2>
+        <p>Cómo se usa en el Hospital Sant Joan de Déu y cómo nació el proyecto. 1 min 45 s.</p>
+      </div>
+      <video controls preload="none" playsinline poster="../assets/video-poster.jpg">
+        <source src="../assets/nido-video.mp4" type="video/mp4">
+        <a href="../assets/nido-video.mp4">Descargar el vídeo</a>
+      </video>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="t-proof">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="t-proof">Diseñado junto a quienes lo usan</h2>
+        <p>Nido se ha diseñado y probado con profesionales de neonatología, pediatría y enfermería. Así llega al mercado como producto sanitario, con el rigor clínico y el diseño que necesita una unidad neonatal.</p>
+      </div>
+      <ul class="collab">
+        <li>Hospital Sant Joan de Déu<small>Barcelona · desarrollo del producto</small></li>
+        <li>Hospital Clínic de Barcelona<small>Neonatología</small></li>
+        <li>Hospital Clínic Universitari de València<small>Pediatría</small></li>
+        <li>Universitat de València<small>Facultat d'Infermeria</small></li>
+        <li>Elisava<small>Escola Universitària de Disseny i Enginyeria</small></li>
+        <li>i4KIDS<small>Presentado en CosmoCaixa, Barcelona</small></li>
+      </ul>
+      <dl class="spec" aria-label="Ficha técnica">
+        <div><dt>Uso</dt><dd>Unidades de cuidados intensivos neonatales y pediatría</dd></div>
+        <div><dt>Paciente</dt><dd>Recién nacido prematuro y neonato hospitalizado</dd></div>
+        <div><dt>Funciones</dt><dd>Contención, posicionamiento y estimulación sensorial</dd></div>
+        <div><dt>Limpieza</dt><dd>Desinfectable</dd></div>
+        <div><dt>Propiedad intelectual</dt><dd>Sistema patentado</dd></div>
+        <div><dt>Regulación</dt><dd><span class="ph">[Marcado CE y clase de producto sanitario]</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="equipo" aria-labelledby="t-team" style="padding-top:0">
+    <div class="wrap team">
+      <img src="../assets/team-nicu.jpg" alt="Eva Díaz, María José Troyano y Paola Mecchia en la UCI neonatal" width="1280" height="720" loading="lazy">
+      <div>
+        <h2 id="t-team">Diseño y salud, en el mismo equipo</h2>
+        <p style="margin-top:16px;font-size:1.1rem;color:var(--ink-2)">Somos expertas en desarrollo de producto. Integramos a los profesionales de los hospitales en todo el proceso de diseño para crear soluciones útiles de verdad.</p>
+        <ul class="people">
+          <li><b>Eva Díaz</b><span>Fundadora</span></li>
+          <li><b>María José Troyano</b><span>Asesora médica</span></li>
+          <li><b>Paola Mecchia</b><span>Asesora de producto</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0" aria-labelledby="t-cta">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2 id="t-cta">¿Quieres probar Nido en tu unidad?</h2>
+          <p>Te enseñamos el sistema en una demostración y te enviamos la ficha técnica completa.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:nidoinnova@gmail.com?subject=Solicitud%20de%20demostraci%C3%B3n%20Nido">Solicitar una demostración</a>
+          <a class="mail" href="mailto:nidoinnova@gmail.com">nidoinnova@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="../assets/logo-color.png" alt="Nido Innova" width="560" height="362">
+    <nav aria-label="Redes"><a href="https://www.linkedin.com/company/nidoinnova/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/NidoInnovamosconvalor/" target="_blank" rel="noopener">Facebook</a></nav>
+    <span>© 2026 Nido Innova · Barcelona</span>
+  </div>
+</footer>
+</body>
+</html>
