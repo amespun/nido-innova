@@ -1,0 +1,10 @@
+elisava.html:<img src="https://www.elisava.net/wp-content/themes/elisava/images/logo.svg" loading="lazy" alt="Elisava" width="125" height="18">
+elisava.html:<img class="footer-logo" src="https://cdnmedia.elisava.net/main-web/2023/04/04092504/elisava-grado-logo-1.svg" alt="" loading="lazy" width="0" height="0">
+uv.html:<img alt="Logo del portal" src='/recursos/fatwirepub/ccurl/45/60/cap_uv.svg' />
+uv.html:<img src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" alt="LogoUV" class="logoSidebar"/>
+uv.html:<img class="popupStyle" src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" width="50%" alt="LogoUV"/>
+uv.html:<img class="popupStyle" src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" width="50%" alt="LogoUV"/>
+uv.html:<img class="popupStyle" src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" width="50%" alt="LogoUV"/>
+uv.html:<img class="popupStyle" src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" width="50%" alt="LogoUV"/>
+uv.html:<img class="popupStyle" src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" width="50%" alt="LogoUV"/>
+uv.html:<img class="popupStyle" src="//www.uv.es/uwm/imatges/GMaps/logo_uv.png" width="50%" alt="LogoUV"/>
